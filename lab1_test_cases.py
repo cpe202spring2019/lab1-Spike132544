@@ -37,27 +37,48 @@ class TestLab1(unittest.TestCase):
         none_list = None
         with self.assertRaises(ValueError):
             bin_search(3, 0, 13, none_list)
-    
+        
+        #odd
         list_val =[0,1,2,3,4,7,8,9,10]
         low = 0
         high = len(list_val)-1
         self.assertEqual(bin_search(4, 0, len(list_val)-1, list_val), 4)
 
+        #even
         list_val =[0,1,2,3,4,7,8,9]
         low = 0
         high = len(list_val)-1
         self.assertEqual(bin_search(4, 0, len(list_val)-1, list_val), 4)
 
+        #odd None
         list_val =[0,1,2,3,4,7,8,9,10]
         low = 0
         high = len(list_val)-1
         self.assertEqual(bin_search(11, 0, len(list_val)-1, list_val), None)
 
+        #even None
         list_val =[0,1,2,3,4,7,8,9]
         low = 0
         high = len(list_val)-1
         self.assertEqual(bin_search(10, 0, len(list_val)-1, list_val), None)
 
+        #odd max
+        list_val =[0,1,2,3,4,7,8,9,10]
+        low = 0
+        high = len(list_val)-1
+        self.assertEqual(bin_search(10, 0, len(list_val)-1, list_val), 8)
+    
+        #even max
+        list_val =[0,1,2,3,4,7,8,9]
+        low = 0
+        high = len(list_val)-1
+        self.assertEqual(bin_search(9, 0, len(list_val)-1, list_val), 7)
+
+        #min
+        list_val =[0,1,2,3,4,7,8,9,10]
+        low = 0
+        high = len(list_val)-1
+        self.assertEqual(bin_search(0, 0, len(list_val)-1, list_val), 0)
 
 if __name__ == "__main__":
         unittest.main()
