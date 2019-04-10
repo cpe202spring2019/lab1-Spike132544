@@ -10,11 +10,11 @@ class TestLab1(unittest.TestCase):
         with self.assertRaises(ValueError):  # used to check for exception
             max_list_iter(tlist)
         
-        list1 = [0,1,2,3,4,5,6,7,8,9,10]
-        list2 = [0,1,2,3,6,4,5,7,1]
-        list3 = [0,0,0,0,0,0,0,0,0]
-        list4 = [0,1,1,2,3,4,5,5,6,7,7]
-        list5 = []
+        list1 = [0,1,2,3,4,5,6,7,8,9,10]    #ordered
+        list2 = [0,1,2,3,6,4,5,7,1]         #unordered
+        list3 = [0,0,0,0,0,0,0,0,0]         #all the same
+        list4 = [0,1,1,2,3,4,5,5,6,7,7]     #many duplicates
+        list5 = []                          #empty
 
         self.assertEqual(max_list_iter(list1), 10)
         self.assertEqual(max_list_iter(list2), 7)
@@ -23,14 +23,20 @@ class TestLab1(unittest.TestCase):
         self.assertEqual(max_list_iter(list5), None)
 
     def test_reverse_rec(self):
+        #check ValueError
         none_list = None
         with self.assertRaises(ValueError):
             reverse_rec(none_list)
 
+        #check 3 and 4 list length
         self.assertEqual(reverse_rec([1,2,3]),[3,2,1])
         self.assertEqual(reverse_rec([1,2,3,4]),[4,3,2,1])
+        
+        #check reverses
         self.assertEqual(reverse_rec([4,3,2,1]),[1,2,3,4])
         self.assertEqual(reverse_rec([3,2,1]),[1,2,3])
+        
+        #check empty
         self.assertEqual(reverse_rec([]),[])
 
     def test_bin_search(self):
