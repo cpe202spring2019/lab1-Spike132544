@@ -80,6 +80,25 @@ class TestLab1(unittest.TestCase):
         high = len(list_val)-1
         self.assertEqual(bin_search(0, 0, len(list_val)-1, list_val), 0)
 
+        #empty
+        list_val = []
+        low = 0
+        high = 0
+        self.assertEqual(bin_search(0, 0, len(list_val)-1, list_val), None)
+
+        #1 item
+        list_val = [1]
+        low = 0
+        high = 0
+        self.assertEqual(bin_search(1, 0, len(list_val)-1, list_val), 0)
+        
+        #2 items
+        list_val = [1, 2]
+        low = 0
+        high = 1
+        self.assertEqual(bin_search(1, 0, len(list_val)-1, list_val), 0)
+
+
 if __name__ == "__main__":
         unittest.main()
 
