@@ -37,6 +37,12 @@ class TestLab1(unittest.TestCase):
         #check reverses
         self.assertEqual(reverse_rec([4,3,2,1]),[1,2,3,4])
         self.assertEqual(reverse_rec([3,2,1]),[1,2,3])
+    
+        #check empty
+        self.assertEqual(reverse_rec([]), [])
+        
+        #check single
+        self.assertEqual(reverse_rec([1]), [1])
 
     def test_bin_search(self):
         none_list = None
